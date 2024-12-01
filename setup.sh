@@ -14,8 +14,8 @@ while(($i < 26)); do
     mkdir $vari$i
     cd $vari$i
     go mod init $vari$i
-    cp /home/asolman/Programming/AdventofCode/day1/*.go .
-    cp /home/asolman/Programming/AdventofCode/day1/*.txt .
+    cp /home/asolman/Programming/AoC24/day1/*.go .
+    cp /home/asolman/Programming/AoC24/day1/*.txt .
     cd ..
     i=$((i+1))
 done
