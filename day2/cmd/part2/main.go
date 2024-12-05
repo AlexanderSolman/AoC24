@@ -161,9 +161,9 @@ func readInput(sum1, sum2 *int) error {
         } else if nums[0] < nums[len(nums)-1] {
             negative = false
         } else {
-            if nums[0] > nums[len(nums)-1] {
+            if nums[0] > nums[len(nums)-2] {
                 negative = true
-            } else if nums[0] < nums[len(nums)-1] {
+            } else if nums[0] < nums[len(nums)-2] {
                 negative = false
             }
         }
