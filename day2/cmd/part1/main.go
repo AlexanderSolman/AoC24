@@ -24,7 +24,34 @@ func diffOfTwo(a, b int) int {
     return b + (^a + 1)
 }
 
-func adjacentChecking(nums []int, left, right, deviation int) int {
+//func adjacentChecking(nums []int, left, right, deviation int) int {
+//    if left <= right && deviation == 0 {
+//        if left-1 >= 0 && right+1 <= len(nums)-1 {
+//            diffLeft1 := diffOfTwo(nums[left-1], nums[left])
+//            diffLeft2 := diffOfTwo(nums[left+1], nums[left])
+//            diffRight1 := diffOfTwo(nums[right-1], nums[right])
+//            diffRight2 := diffOfTwo(nums[right+1], nums[right])
+//
+//            if negative {
+//                if !(nums[left-1] > nums[left] && nums[left+1] < nums[left]) || !(diffLeft1 <= 3 && diffLeft1 >= 1) || !(diffLeft2 <= 3 && diffLeft2 >= 1) ||
+//                    !(nums[right-1] > nums[right] && nums[right+1] < nums[right]) || !(diffRight1 <= 3 && diffRight1 >= 1) || !(diffRight2 <= 3 && diffRight2 >= 1) {
+//                    return adjacentChecking(nums, left+1, right-1, deviation+1)
+//                }
+//            }
+//
+//            if !negative {
+//                if !(nums[left-1] < nums[left] && nums[left+1] > nums[left]) || !(diffLeft1 <= 3 && diffLeft1 >= 1) || !(diffLeft2 <= 3 && diffLeft2 >= 1) ||
+//                    !(nums[right-1] < nums[right] && nums[right+1] > nums[right]) || !(diffRight1 <= 3 && diffRight1 >= 1) || !(diffRight2 <= 3 && diffRight2 >= 1) {
+//                    return adjacentChecking(nums, left+1, right-1, deviation+1)
+//                }
+//            }
+//            return adjacentChecking(nums, left+1, right-1, deviation)
+//        }
+//    }
+//    return deviation
+//}
+
+func adjacentChecking(nums []string, left, right, deviation int) int {
     if left <= right && deviation == 0 {
         if left-1 >= 0 && right+1 <= len(nums)-1 {
             diffLeft1 := diffOfTwo(nums[left-1], nums[left])
@@ -63,11 +90,11 @@ func readInput(sum *int) error {
         line := scanner.Text()
         subStr := strings.Split(line, " ")
         var nums []int
-        for _, i := range subStr {
-            num, err := strconv.Atoi(i)
-            if err != nil { log.Fatalf("failed converting") }
-            nums = append(nums, num)
-        }
+//        for _, i := range subStr {
+//            num, err := strconv.Atoi(i)
+//            if err != nil { log.Fatalf("failed converting") }
+//            nums = append(nums, num)
+//        }
 
         if nums[0] > nums[len(subStr)-1] {
             negative = true
@@ -77,7 +104,7 @@ func readInput(sum *int) error {
             continue
         }
         
-        if deviation := adjacentChecking(nums, 1, len(nums)-2, 0); deviation == 0 {
+        if deviation := adjacentChecking(subStr, 1, len(nums)-2, 0); deviation == 0 {
             *sum += 1
         }
         
