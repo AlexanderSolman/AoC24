@@ -14,7 +14,6 @@ func TestMain(t *testing.T) {
         {3,5,2},
         {4,9,5},
     }
-    // 2+1+0+1+2+5
 
     for _, tt := range testcases {
         result := funtotest(tt.a, tt.b)
