@@ -59,6 +59,7 @@ func readInput(sum *int) error {
             if !checkValidPage(rules, pages, len(pages)-1) {
                 for i := len(pages)-1; i >= 0; i-- {
                     for j := i-1; j >= 0; j-- {
+                        iterations += 1
                         if _, ok := rules[pages[i]][pages[j]]; ok {
                             temp := pages[i]
                             pages[i] = pages[j]
